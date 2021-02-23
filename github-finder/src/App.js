@@ -11,6 +11,7 @@ import UserDetail from "./components/user/userDetail";
 class App extends Component {
   state = {
     users: [],
+    repos: [],
     loading: false,
     alert: null,
     userDetail: {},
@@ -62,8 +63,24 @@ class App extends Component {
       loading: false,
     });
   };
+
+  // Get repositories
+  getRepository = async (userName) => {
+    this.setState({
+      loading: true,
+    });
+
+    const repos = await axios.get(
+      `https://api.github.com/users/${userName}/repos?client_id=${process.env.REACT_APP_CLIENT_ID}&client_sercret=${process.env.REACT_APP_GITHUB_CLIENT_SERCRET}`
+    );
+    this.setState({
+      repos: repos.data,
+      loading: false,
+    });
+  };
+
   render() {
-    let { users, loading, userDetail } = this.state;
+    let { users, loading, userDetail, repos } = this.state;
     return (
       <Router>
         <div className="App">
@@ -95,7 +112,9 @@ class App extends Component {
                     {...props}
                     getUser={this.getUser}
                     user={userDetail}
+                    repos={repos}
                     loading={loading}
+                    getRepository={this.getRepository}
                   />
                 )}
               />

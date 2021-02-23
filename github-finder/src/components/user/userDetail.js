@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Spinner from "../layout/spinner";
+import Repos from "../repos/repos";
 
 class UserDetail extends Component {
   componentDidMount() {
     const userName = this.props.match.params.login;
     this.props.getUser(userName);
+    this.props.getRepository(userName);
   }
   render() {
-    const loading = this.props;
+    const { loading, repos } = this.props;
     const {
       login,
       avatar_url,
@@ -25,7 +27,7 @@ class UserDetail extends Component {
       name,
       blog,
     } = this.props.user;
-
+    console.log(blog);
     if (loading) {
       <Spinner />;
     }
@@ -52,7 +54,7 @@ class UserDetail extends Component {
             <h2>{name}</h2>
             {location && (
               <span>
-                <stong>Location:</stong> {location}
+                <strong>Location:</strong> {location}
               </span>
             )}
           </div>
@@ -92,6 +94,7 @@ class UserDetail extends Component {
           <div className="badge badge-light"> Public repos: {public_repos}</div>
           <div className="badge badge-dark">Public gists: {public_gists}</div>
         </div>
+        <Repos repos={repos} />
       </>
     );
   }

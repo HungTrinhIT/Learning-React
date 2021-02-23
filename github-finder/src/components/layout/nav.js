@@ -5,7 +5,9 @@ const NavBar = ({ title }) => {
   return (
     <nav className="navbar bg-primary">
       <h1>
-        <i className="fab fa-github" /> {title}
+        <Link to="/">
+          <i className="fab fa-github" /> {title}
+        </Link>
       </h1>
       <ul>
         <li>
