@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/layout/nav";
-
 import Alert from "./components/layout/alert";
 import About from "./components/pages/about";
 import UserDetail from "./components/user/userDetail";
