@@ -82,11 +82,15 @@ img {
   color: var(--primary-color);
 }
 
+.text-danger {
+  color: var(--danger-color);
+}
+
 .text-dark {
   color: var(--dark-color);
 }
 
-.text-center {
+.tex .text-center {
   text-align: center;
 }
 
@@ -405,6 +409,16 @@ table td {
 
 table th {
   background: var(--light-color);
+}
+
+.form__title {
+  text-transform: uppercase;
+  border-bottom: solid 2px var(--primary-color);
+  margin-bottom: 32px;
+}
+
+.form__input-item input {
+  margin-top: 0;
 }
 
 /* Navbar */
