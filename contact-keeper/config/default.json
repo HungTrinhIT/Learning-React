@@ -2,3 +2,4 @@
     "mongoURI": "mongodb+srv://hungtrinh:Hcmus@413099@cluster0.rp13r.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     "jwtSecret": "secret"
 }
+
